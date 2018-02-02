@@ -23,7 +23,7 @@ int main(void)
 	printf("ptr1 = %p, *ptr1 = %d, &ptr1 = %p\n",
 			ptr1, *ptr1, &ptr1);
 	ptr2--;		// decrement a pointer
-	printf("\nvalues after --ptr:\n");
+	printf("\nvalues after --ptr2:\n");
 	printf("ptr2 = %p, *ptr2 = %d, &ptr2 = %p\n",
 			ptr2, *ptr2, &ptr2);
 	--ptr1;		// restore to original value
