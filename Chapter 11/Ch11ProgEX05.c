@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #define SIZE 20
-char * searchstr(const char *, char);
+const char * searchstr(const char *, char);
 char * s_gets(char * st, int n);
 void flush(void);
 
@@ -18,7 +18,8 @@ int main(void)
 {
 	char str[SIZE];
 	char ch;
-	char * pc, * pstr;
+	const char * pc;
+	char * pstr;
 	int count;
 
 	puts("Enter a string under 20 characters:");
@@ -51,9 +52,9 @@ int main(void)
 	return 0;
 }
 
-char * searchstr(const char * str, char n)
+const char * searchstr(const char * str, char n)
 {
-	char * ret_val = str;
+	const char * ret_val = str;
 	bool nfound = false;
 
 	while (*ret_val)

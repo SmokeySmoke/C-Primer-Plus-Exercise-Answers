@@ -33,7 +33,7 @@ int main(void)
 _Bool is_within(char ch, const char * str)
 {
 	_Bool ret_val = 0;
-	char * pc = str;
+	const char * pc = str;
 
 	while (*pc)
 	{
