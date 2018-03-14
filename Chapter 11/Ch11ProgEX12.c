@@ -16,7 +16,7 @@ int main(void)
 
 	while ((input = getchar()) != EOF)
 	{
-		if (inword = true && isspace(input) && !ispunct(input))
+		if (inword == true && isspace(input))
 		{
 			nw++;
 			inword = false;
