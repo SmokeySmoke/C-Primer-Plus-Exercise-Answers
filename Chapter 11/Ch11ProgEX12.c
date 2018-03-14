@@ -17,7 +17,11 @@ int main(void)
 	while ((input = getchar()) != EOF)
 	{
 		if (inword = true && isspace(input) && !ispunct(input))
+		{
 			nw++;
+			inword = false;
+		} else
+			inword = true;
 		if (isupper(input))
 			nup++;
 		else if (islower(input))
