@@ -7,7 +7,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <ctype.h>
-int myatoi(char *);
+// int myatoi(char *);
 
 int main(int argc, char * argv[])
 {
@@ -24,6 +24,7 @@ int myatoi(char * str)
 	bool ispure = true;
 	int ret_val = 0;
 	int i = 0;
+	int count = 1;
 	char * pc = str;
 
 	while (*pc && ispure == true)
@@ -37,7 +38,41 @@ int myatoi(char * str)
 		pc++;
 	}
 	if (ispure == true)
-		ret_val = atoi(str);
+	{
+		pc = str;
+		while (*pc)
+		{
+			switch(*pc)
+			{
+				case '0' : i = 0;
+					   break;
+				case '1' : i = 1;
+					   break;
+				case '2' : i = 2;
+					   break;
+			 	case '3' : i = 3;
+					   break;
+				case '4' : i = 4;
+					   break;
+				case '5' : i = 5;
+					   break;
+				case '6' : i = 6;
+					   break;
+				case '7' : i = 7;
+					   break;
+				case '8' : i = 8;
+					   break;
+				case '9' : i = 9;
+					   break;
+				default  : puts("Program error in myatoi() switch!");
+			}
+			i *= count;
+			ret_val += i;
+			count *= 10;
+			pc++;
+			
+		}
+	}
 
 	return ret_val;
 }
