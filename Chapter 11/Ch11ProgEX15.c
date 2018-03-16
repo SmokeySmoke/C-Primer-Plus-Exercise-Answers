@@ -14,7 +14,7 @@ int main(int argc, char * argv[])
 	double n = atof(argv[1]);
 	int p = myatoi(argv[2]);
 
-	printf("%.2lf\n", pow(n, p));
+	printf("%lf\n", pow(n, p));
 
 	return 0;
 }
@@ -22,6 +22,7 @@ int main(int argc, char * argv[])
 int myatoi(char * str)
 {
 	bool ispure = true;
+	bool isneg = false;
 	int ret_val = 0;
 	int i = 0;
 	int multiplier = 1;
@@ -29,7 +30,7 @@ int myatoi(char * str)
 
 	while (*pc && ispure == true)
 	{
-		if (!isdigit(*pc))
+		if (!isdigit(*pc) && *pc != '-')
 		{
 			ispure = false;
 			ret_val = 0;
@@ -42,6 +43,16 @@ int myatoi(char * str)
 		pc = str;
 		while (*pc)
 		{
+			if (*pc == '-')
+			{
+				isneg = true;
+				pc++;
+			}
+			if (*pc == '-')
+			{
+				ret_val = 0;
+				break;
+			}
 			switch(*pc)
 			{
 				case '0' : i = 0;
@@ -66,6 +77,8 @@ int myatoi(char * str)
 					   break;
 				default  : puts("Program error in myatoi() switch!");
 			}
+			if (isneg)
+				i *= -1;
 			i *= multiplier;
 			ret_val += i;
 			multiplier *= 10;
