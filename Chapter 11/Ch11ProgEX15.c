@@ -24,7 +24,7 @@ int myatoi(char * str)
 	bool ispure = true;
 	int ret_val = 0;
 	int i = 0;
-	int count = 1;
+	int multiplier = 1;
 	char * pc = str;
 
 	while (*pc && ispure == true)
@@ -66,9 +66,9 @@ int myatoi(char * str)
 					   break;
 				default  : puts("Program error in myatoi() switch!");
 			}
-			i *= count;
+			i *= multiplier;
 			ret_val += i;
-			count *= 10;
+			multiplier *= 10;
 			pc++;
 			
 		}
