@@ -7,7 +7,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <ctype.h>
-// int myatoi(char *);
+int myatoi(char *);
 
 int main(int argc, char * argv[])
 {
