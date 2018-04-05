@@ -11,10 +11,7 @@
 
 // removes newlines from text files
 #include <stdio.h>
-#include <stdlib.h>	// for exit()
-#include <string.h>	// for strlen() strncpy() and strcat()
-#include <ctype.h>	// for isspace()
-#define SLEN 81	// limit of characters per line in output file
+#define SLEN 81	// limit for filename
 long srchfp(char, FILE *);
 
 int main(int argc, char *argv[])
