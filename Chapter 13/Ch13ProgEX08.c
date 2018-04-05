@@ -8,8 +8,6 @@
  * can't be opened, have the program report that fact and go on to the next
  * file.
  */
-
-// removes newlines from text files
 #include <stdio.h>
 #define SLEN 81	// limit for filename
 long srchfp(char, FILE *);
