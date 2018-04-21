@@ -5,8 +5,6 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
 char * s_gets(char * st, int n);
 #define MAXTITL	40
 #define MAXAUTL 40
