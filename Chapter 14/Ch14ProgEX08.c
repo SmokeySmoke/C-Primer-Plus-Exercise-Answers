@@ -121,6 +121,7 @@ int main(void)
 					if (i == NSEATS-1)
 						puts("All seats are taken.");
 				   }
+				   flush();
 				   break;
 			case 'e' : showAlpha(seat);
 				   puts("Which seat would you like to vacate? (0 to abort)");
