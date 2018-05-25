@@ -1,5 +1,5 @@
 // mall.c -- use the Queue interface
-// compile with queue.c
+// compile with mall_queue.c
 #include <stdio.h>
 #include <stdlib.h>	// for rand() and srand()
 #include <time.h>	// for time()
