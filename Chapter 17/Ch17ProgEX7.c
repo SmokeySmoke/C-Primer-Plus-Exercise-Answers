@@ -10,11 +10,15 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "BinTree.h"
+void string2upper(char * string);
+void prepname(char * name);
+char * s_gets(char * st, int n);
 void flush(void);
 
 int main(int argc, char * argv[])
 {
 	char ch;
+	char * temp;
 	Tree tree;
 	Item word;
 	Node * pn;
@@ -34,7 +38,10 @@ int main(int argc, char * argv[])
 
 	InitializeTree(&tree);
 	while (fscanf(fp, "%s", word.string) == 1)
+	{
+		prepname(word.string);
 		AddItem(&word, &tree);
+	}
 	fclose(fp);
 	
 	do
@@ -53,8 +60,8 @@ int main(int argc, char * argv[])
 			case 'a' : puts("[Word] - [Count]");
 				   ShowTree(&tree); break;
 			case 'w' : puts("Enter word to search for:");
-				   scanf("%s", word.string);
-				   flush();
+				   s_gets(word.string, SLEN);
+				   string2upper(word.string);
 				   ShowItem(&word, &tree);
 			case 'q' : break;
 			default : puts("Invalid; Try again.");
@@ -65,6 +72,48 @@ int main(int argc, char * argv[])
 	puts("Bye!");
 
 	return 0;
+}
+
+void string2upper(char * string)
+{
+	for (int i = 0; i < SLEN; i++)
+		if (islower(string[i]))
+			string[i] = toupper(string[i]);
+}
+
+void prepname(char * name)
+{
+	int i, j;
+	i = 0;
+	while (name[i] != '\0')
+		i++;
+	while (i++ < SLEN)
+		name[i] = '\0';
+
+	for (i = 0; i < SLEN; i++)
+		if (name[i] != '\'' && !isalpha(name[i]))
+			for (j = i; j < SLEN-1; j++)
+				name[j] = name[j+1];
+	string2upper(name);
+}
+
+char * s_gets(char * st, int n)
+{
+	char * ret_val;
+	int i = 0;
+
+	ret_val = fgets(st, n, stdin);
+	if (ret_val)	// i.e., ret_val != NULL
+	{
+		while (st[i] != '\n' && st[i] != '\0')
+			i++;
+		if (st[i] == '\n')
+			st[i] = '\0';
+		else 	// must have words[i] == '\0'
+			while (getchar() != '\n')
+				continue;
+	}
+	return ret_val;
 }
 
 void flush(void)
